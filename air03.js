@@ -21,17 +21,24 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
 
 function whereAreTheOddOnes(array){
 	let oddOnes = [];
+	let compteurs = { };
 	for (let i = 0 ; i < array.length ; i++){
-		let compteur = 1;
+		if (compteurs[array[i]] === undefined){
+			compteurs[array[i]] = 1
+		}
+		else if (compteurs[array[i]] !== undefined){
+			continue
+		}
+		
 		for (let j = 0 ; j < array.length ; j++){
 			if (j === i){
 				continue
 			}
 			else if (array[j] === array[i]){
-				compteur ++
+				compteurs[array[i]] ++
 			}
 		}
-		if (compteur % 2 !== 0){
+		if (compteurs[array[i]] % 2 !== 0){
 			oddOnes.push(array[i])
 		}
 	}
