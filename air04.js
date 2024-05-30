@@ -19,8 +19,7 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function deleteDuplicates(arguments){
-	let string = arguments[0]
+function deleteDuplicates(string){
 	let stringWithoutDuplicates = '';
 	for (let i = 0 ; i < string.length ; i++){
 		if (string[i] === string[i + 1]){
@@ -60,7 +59,7 @@ function getStringWithoutDuplicates(){
             return "erreur : insérez un argument"
       }
       else {
-            return deleteDuplicates(arguments)
+            return deleteDuplicates(arguments[0])
       }
 }
 
