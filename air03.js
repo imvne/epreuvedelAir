@@ -21,12 +21,12 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
 
 function whereAreTheOddOnes(array){
 	let oddOnes = [];
-	let compteurs = { };
+	let counters = { };
 	for (let i = 0 ; i < array.length ; i++){
-		if (compteurs[array[i]] === undefined){
-			compteurs[array[i]] = 1
+		if (counters[array[i]] === undefined){
+			counters[array[i]] = 1
 		}
-		else if (compteurs[array[i]] !== undefined){
+		else if (counters[array[i]] !== undefined){
 			continue
 		}
 		
@@ -35,10 +35,10 @@ function whereAreTheOddOnes(array){
 				continue
 			}
 			else if (array[j] === array[i]){
-				compteurs[array[i]] ++
+				counters[array[i]] ++
 			}
 		}
-		if (compteurs[array[i]] % 2 !== 0){
+		if (counters[array[i]] % 2 !== 0){
 			oddOnes.push(array[i])
 		}
 	}
