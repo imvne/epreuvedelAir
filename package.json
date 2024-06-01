@@ -1,0 +1,20 @@
+{
+  "name": "epreuvedelAir",
+  "version": "1.0.0",
+  "description": "Ce répertoire contient les exercices de l'épreuve de l'air Coding Accelerator",
+  "main": "air00.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imvne/epreuvedelAir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imvne/epreuvedelAir/issues"
+  },
+  "homepage": "https://github.com/imvne/epreuvedelAir#readme"
+}
