@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/imvne/epreuvedelAir/issues"
   },
-  "homepage": "https://github.com/imvne/epreuvedelAir#readme"
+  "homepage": "https://github.com/imvne/epreuvedelAir#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-color": "^2.0.4",
+    "colors": "^1.4.0"
+  }
 }
