@@ -19,15 +19,17 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function readTheFile(argument) {
+function readTheFile(fileName){
 	const fs = require('fs')
-	fs.readFile(argument, 'utf8', (err, data) => {
-	    if (err) {
-		  return console.error(err)
-	    }
-  
-	    return console.log(data)
-	})
+	const path = require('path');
+	let extension = path.extname(fileName)
+	let readOptions = {
+		encoding : 'utf-8',
+		flag : 'r'
+	}
+	
+	return [fs.readFileSync(fileName, readOptions)][0]
+	
 }
 
 
@@ -64,4 +66,4 @@ function getFileContent(){
 
 // Print
 
-getFileContent()
+console.log(getFileContent())
