@@ -35,7 +35,7 @@ function whereAreTheOddOnes(array){
 				continue
 			}
 			else if (array[j] === array[i]){
-				counters[array[i]] ++
+				counters[array[i]]++
 			}
 		}
 		if (counters[array[i]] % 2 !== 0){
@@ -43,7 +43,7 @@ function whereAreTheOddOnes(array){
 		}
 	}
 	
-	return oddOnes;
+	return oddOnes.join(' ');
 }
 
 // Error management
