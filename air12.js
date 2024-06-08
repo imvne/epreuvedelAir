@@ -19,7 +19,7 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function charactersToNumbers(arguments){
+function charactersToIntegers(arguments){
 	let numbersArray = [];
 	for (string of arguments){
 		numbersArray.push(parseInt(string))
@@ -58,7 +58,7 @@ function quickSort(array, startIndex = 0, endIndex = array.length-1){
 		quickSort(array, i, endIndex);
 	}
 	
-	return array
+	return array.join(' ')
 }
 
 
@@ -101,10 +101,10 @@ function getArrayQuickSorted(){
             return "erreur : insérez au moins deux arguments"
       }
 	else if (!isIntegers(arguments)){
-		return "erreux n'insérez que des nombres entiers"
+		return "erreur : n'insérez que des nombres entiers"
 	}
       else {
-            return quickSort(charactersToNumbers(arguments))
+            return quickSort(charactersToIntegers(arguments))
       }
 }
 
