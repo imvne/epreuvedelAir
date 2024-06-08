@@ -19,7 +19,7 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function stringToNumbers(stringsArray){
+function stringToIntNumbers(stringsArray){
 	let numbersArray = [];
 	for (string of stringsArray) {
 		numbersArray.push(parseInt(string))
@@ -80,10 +80,10 @@ function getNumbersAddOrSub(){
             return "erreur : insérez au moins deux arguments"
       }
 	else if (!isIntegers(arguments)){
-		return "erreur : n'insérez que des nombres"
+		return "erreur : n'insérez que des entiers"
 	}
       else {
-		const numbers = stringToNumbers(arguments);
+		const numbers = stringToIntNumbers(arguments);
             return eachAddOrSub(numbers)
       }
 }

@@ -19,7 +19,7 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function stringToNumbers(stringsArray){
+function stringToIntNumbers(stringsArray){
 	let numbersArray = [];
 	for (string of stringsArray) {
 		numbersArray.push(parseInt(string))
@@ -89,13 +89,13 @@ function blendTwoSortedArrays(firstArray, secondArray){
 		
 	}
 	
-	return newSortedArray;
+	return newSortedArray.join(' ');
 }
 
 // Error management
 
 function isValidArguments(arguments){
-      if (arguments.length > 1){
+      if (arguments.length > 2){
             return true
       }
       return false
@@ -103,11 +103,27 @@ function isValidArguments(arguments){
 
 function isIntegers(arguments){
 	
-	for (character of arguments){
-		const numberValue = Number(character);
+	for (element of arguments){
+		const numberValue = Number(element);
 		
 		if (!Number.isInteger(numberValue)){ 
 			return false;
+		}
+	}
+	return true
+}
+
+function containsString(arguments){
+	if (arguments.includes('fusion')){
+		return true
+	}
+	return false
+}
+
+function isSorted(arguments){
+	for (let i = 0 ; i < arguments.length ; i++){
+		if (arguments[i] > arguments[i + 1]){
+			return false
 		}
 	}
 	return true
@@ -126,19 +142,23 @@ function getArguments(){
 
 function getTwoSortedArraysBlend(){
       const arguments = getArguments();
-      
+      const firstArray = getArraysMinusSplitter(arguments, 'fusion')[0]
+	const secondArray = getArraysMinusSplitter(arguments, 'fusion')[1]
+	
       if (!isValidArguments(arguments)){
-            return "erreur : insérez au moins deux arguments"
+            return "erreur : insérez au moins trois arguments"
       }
-	else if (!isIntegers){
+	else if (!containsString(arguments)){
+		return "erreur : séparez les arguments par 'fusion'"
+	}
+	else if (!isIntegers(firstArray) || !isIntegers(secondArray)){
 		return "erreur : n'insérez que des entiers"
 	}
+	else if(!isSorted(stringToIntNumbers(firstArray)) || !isSorted(stringToIntNumbers(secondArray))){
+		return "erreur : insérez deux listes respectivement triées"
+	}
       else {
-		const arraysMinusSplitter = getArraysMinusSplitter(arguments, 'fusion')
-		const firstArray = stringToNumbers(arraysMinusSplitter[0])
-		const secondArray = stringToNumbers(arraysMinusSplitter[1])
-		
-            return blendTwoSortedArrays(firstArray, secondArray)
+            return blendTwoSortedArrays(stringToIntNumbers(firstArray), stringToIntNumbers(secondArray))
       }
 }
 

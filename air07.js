@@ -19,7 +19,7 @@ function slice(arguments, firstIndex, endIndex = arguments.length-1){
       }
 }
 
-function stringToNumbers(stringsArray){
+function stringToIntNumbers(stringsArray){
 	let numbersArray = [];
 	for (string of stringsArray) {
 		numbersArray.push(parseInt(string))
@@ -82,13 +82,13 @@ function getNewSortedArray(){
       const arguments = getArguments();
       
       if (!isValidArguments(arguments)){
-            return "erreur : insérez au moins trois arguments"
+		return "erreur : insérez au moins trois arguments"
       }
-	else if (!isIntegers){
+	else if (!isIntegers(arguments)){
 		return "erreur : n'insérez que des entiers"
 	}
       else {
-		const numbers = stringToNumbers(arguments)
+		const numbers = stringToIntNumbers(arguments)
             return insertInSortedArray(slice(numbers, 0, numbers.length-2), numbers[numbers.length-1])
       }
 }
